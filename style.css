@@ -49,6 +49,15 @@ main {
   border-radius: 50px;
 }
 
+.hold {
+  border: solid green 3px;
+}
+
+.moves {
+  background: green;
+  border-style: dashed;
+}
+
 .red-take {
   width: 30px;
   height: 30px;
@@ -137,6 +146,10 @@ p {
   height: 100%;
   width: 0%;
   background-color: black;
+}
+
+.invisible {
+  display: none;
 }
 
 .red-score-table #red-score-table-1 {

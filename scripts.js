@@ -67,11 +67,26 @@ const board = [
 ];
 
 // DOM referenes
-const cells = document.querySelectorAll("td");
-let redsPieces = document.querySelectorAll("p");
-let blacksPieces = document.querySelectorAll("span");
+const cells = document.querySelectorAll("#board-square");
+let redsPieces = document.querySelectorAll(".red");
+let blacksPieces = document.querySelectorAll(".black");
 const redTurnText = document.querySelectorAll(".red-turn-text");
 const blackTurnText = document.querySelectorAll(".black-turn-text");
+
+// start of drag and drop
+const emptys = document.querySelectorAll(".none");
+
+//fill listiners
+
+const dragStart = () => {
+  redsPieces.className += "hold";
+  setTimeout(() => ((redsPieces.className = "invisible"), 0));
+  console.log("start");
+};
+
+const dragEnd = () => {
+  console.log("end");
+};
 
 // player properties
 let turn = true;
@@ -105,10 +120,14 @@ const applyEvents = () => {
   if (turn) {
     for (let i = 0; i < redsPieces.length; i++) {
       redsPieces[i].addEventListener("click", getPlayerCount);
+      redsPieces[i].addEventListener("dragstart", dragStart);
+      redsPieces[i].addEventListener("dragend", dragEnd);
     }
   } else {
     for (let i = 0; i < blacksPieces.length; i++) {
       blacksPieces[i].addEventListener("click", getPlayerCount);
+      blacksPieces[i].addEventListener("dragstart", dragStart);
+      blacksPieces[i].addEventListener("dragend", dragEnd);
     }
   }
 };
@@ -384,25 +403,25 @@ const makeMove = (number) => {
     if (selectedPiece.isKing) {
       cells[
         selectedPiece.indexOfBoardPiece + number
-      ].innerHTML = `<p class="red king" id="${selectedPiece.pieceId}"></p>`;
-      redsPieces = document.querySelectorAll("p");
+      ].innerHTML = `<div class="red king" id="${selectedPiece.pieceId}"></div>`;
+      redsPieces = document.querySelectorAll(".red");
     } else {
       cells[
         selectedPiece.indexOfBoardPiece + number
-      ].innerHTML = `<p class="red" id="${selectedPiece.pieceId}"></p>`;
-      redsPieces = document.querySelectorAll("p");
+      ].innerHTML = `<div class="red" id="${selectedPiece.pieceId}"></div>`;
+      redsPieces = document.querySelectorAll(".red");
     }
   } else {
     if (selectedPiece.isKing) {
       cells[
         selectedPiece.indexOfBoardPiece + number
-      ].innerHTML = `<span class="black king" id="${selectedPiece.pieceId}"></span>`;
-      blacksPieces = document.querySelectorAll("span");
+      ].innerHTML = `<div class="black king" id="${selectedPiece.pieceId}"></div>`;
+      blacksPieces = document.querySelectorAll(".black");
     } else {
       cells[
         selectedPiece.indexOfBoardPiece + number
-      ].innerHTML = `<span class="black" id="${selectedPiece.pieceId}"></span>`;
-      blacksPieces = document.querySelectorAll("span");
+      ].innerHTML = `<div class="black" id="${selectedPiece.pieceId}"></div>`;
+      blacksPieces = document.querySelectorAll(".black");
     }
   }
 
