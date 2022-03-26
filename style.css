@@ -9,6 +9,12 @@ main {
   align-items: center;
 }
 
+@media screen and (min-width: 768px) {
+  main {
+    flex-direction: row;
+  }
+}
+
 .game-board {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -16,9 +22,20 @@ main {
 
 .game-board #board-square {
   text-align: center;
-  width: 40px;
-  height: 40px;
   border: 2px solid black;
+  height: 40px;
+  width: 40px;
+  max-width: 40px;
+  max-height: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .game-board #board-square {
+    height: 80px;
+    width: 80px;
+    max-width: 80px;
+    max-height: 80px;
+  }
 }
 
 .game-board tr:nth-child(odd) td:nth-child(odd) {
@@ -29,19 +46,6 @@ main {
   background: gray;
 }
 
-.red-turn-text {
-  text-align: center;
-  color: black;
-  font-size: 20px;
-  transform: rotate(180deg) scaleX(1);
-}
-
-.black-turn-text {
-  text-align: center;
-  font-size: 20px;
-  color: lightgray;
-}
-
 .red {
   width: 30px;
   height: 30px;
@@ -49,13 +53,11 @@ main {
   border-radius: 50px;
 }
 
-.hold {
-  border: solid green 3px;
-}
-
-.moves {
-  background: green;
-  border-style: dashed;
+@media screen and (min-width: 768px) {
+  .red {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .red-take {
@@ -72,6 +74,13 @@ main {
   border-radius: 50px;
 }
 
+@media screen and (min-width: 768px) {
+  .black {
+    width: 50px;
+    height: 50px;
+  }
+}
+
 .black-take {
   width: 30px;
   height: 30px;
@@ -84,35 +93,37 @@ main {
 }
 
 .king.black {
-  background-color: gray;
-}
-
-span {
-  display: inline-block;
-}
-
-p {
-  display: inline-block;
+  background-color: paleturquoise;
 }
 
 .red-wrapper {
-  margin-top: 75px;
+  margin: 75px auto auto auto;
   align-content: flex-end;
-  width: 100%;
+  max-width: 500px;
+}
+@media screen and (max-width: 768px) {
+  .red-wrapper {
+    transform: rotate(180deg) scaleX(1);
+  }
+}
+
+.red-wrapper .red-turn-text {
+  text-align: center;
+  color: black;
+  font-size: 20px;
 }
 
 .red-wrapper .red-score {
-  margin-right: 5px;
+  text-align: center;
+  margin-right: 300px;
   font-size: 20px;
-  transform: rotate(180deg) scaleX(1);
 }
 
 .red-wrapper .red-progress {
   width: 95%;
-  max-width: 400px;
+  max-width: 350px;
   border: 2px solid black;
   height: 20px;
-  transform: rotate(180deg) scaleX(1);
 }
 
 .red-wrapper .red-progress .red-progress-bar {
@@ -120,23 +131,35 @@ p {
   height: 100%;
   width: 0%;
   background-color: black;
-  transform: rotate(180deg) scaleX(1);
 }
 
 .black-wrapper {
-  margin-bottom: 300px;
+  margin: auto auto 100px auto;
   align-content: flex-start;
-  width: 100%;
+  max-width: 500px;
+}
+
+@media screen and (min-width: 768px) {
+  .black-wrapper {
+    margin: 75px auto auto 10px;
+  }
 }
 
 .black-wrapper .black-score {
-  margin-left: 5px;
+  text-align: center;
+  margin-right: 300px;
   font-size: 20px;
+}
+
+.black-wrapper .black-turn-text {
+  text-align: center;
+  font-size: 20px;
+  color: lightgray;
 }
 
 .black-wrapper .black-progress {
   width: 95%;
-  max-width: 400px;
+  max-width: 350px;
   border: 2px solid black;
   height: 20px;
 }
@@ -146,10 +169,6 @@ p {
   height: 100%;
   width: 0%;
   background-color: black;
-}
-
-.invisible {
-  display: none;
 }
 
 .red-score-table #red-score-table-1 {

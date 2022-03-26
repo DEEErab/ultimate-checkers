@@ -73,21 +73,6 @@ let blacksPieces = document.querySelectorAll(".black");
 const redTurnText = document.querySelectorAll(".red-turn-text");
 const blackTurnText = document.querySelectorAll(".black-turn-text");
 
-// start of drag and drop
-const emptys = document.querySelectorAll(".none");
-
-//fill listiners
-
-const dragStart = () => {
-  redsPieces.className += "hold";
-  setTimeout(() => ((redsPieces.className = "invisible"), 0));
-  console.log("start");
-};
-
-const dragEnd = () => {
-  console.log("end");
-};
-
 // player properties
 let turn = true;
 let redScore = 0;
@@ -115,19 +100,15 @@ const findPiece = (pieceId) => {
   return board.indexOf(parsed);
 };
 
-// itterates through "p" and "span" tags to add click events
+// itterates through red and black piece to apply eventListiners
 const applyEvents = () => {
   if (turn) {
     for (let i = 0; i < redsPieces.length; i++) {
       redsPieces[i].addEventListener("click", getPlayerCount);
-      redsPieces[i].addEventListener("dragstart", dragStart);
-      redsPieces[i].addEventListener("dragend", dragEnd);
     }
   } else {
     for (let i = 0; i < blacksPieces.length; i++) {
       blacksPieces[i].addEventListener("click", getPlayerCount);
-      blacksPieces[i].addEventListener("dragstart", dragStart);
-      blacksPieces[i].addEventListener("dragend", dragEnd);
     }
   }
 };
@@ -153,7 +134,7 @@ const removeCellOnClick = () => {
 // resets borders to default
 const resetBorders = () => {
   for (let i = 0; i < playerPieces.length; i++) {
-    playerPieces[i].style.border = "1px solid white";
+    playerPieces[i].style.border = "none";
   }
   resetSelectedPieceProperties();
   getSelectedPiece();

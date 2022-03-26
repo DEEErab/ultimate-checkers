@@ -10,6 +10,12 @@
   <body>
     <main>
       <div class="red-wrapper mobile">
+        <div class="red-turn-text mobile">Reds turn</div>
+        <div class="red-progress">
+          <div class="red-progress-bar" id="rp"></div>
+        </div>
+        <div class="red-score mobile" id="rs">0/12</div>
+
         <table class="red-score-table">
           <td><p id="red-score-table-1" class="black-take"></p></td>
           <td><p id="red-score-table-2" class="black-take"></p></td>
@@ -26,139 +32,134 @@
           <td><p id="red-score-table-11" class="black-take"></p></td>
           <td><p id="red-score-table-12" class="black-take"></p></td>
         </table>
-        <div class="red-score mobile" id="rs">0/12</div>
-        <div class="red-progress">
-          <div class="red-progress-bar" id="rp"></div>
-        </div>
-        <div class="red-turn-text mobile">Reds turn</div>
       </div>
       <div class="game-board">
         <table>
           <tr>
             <td id="board-square" class="none"></td>
             <td id="board-square">
-              <div class="red" id="0" draggable="true"></div>
+              <div class="red" id="0"></div>
             </td>
             <td id="board-square" class="none"></td>
             <td id="board-square">
-              <div class="red" id="1" draggable="true"></div>
+              <div class="red" id="1"></div>
             </td>
             <td id="board-square" class="none"></td>
             <td id="board-square">
-              <div class="red" id="2" draggable="true"></div>
+              <div class="red" id="2"></div>
             </td>
             <td id="board-square" class="none"></td>
             <td id="board-square">
-              <div class="red" id="3" draggable="true"></div>
-            </td>
-          </tr>
-          <tr>
-            <td id="board-square">
-              <div class="red" id="4" draggable="true"></div>
-            </td>
-            <td id="board-square" class="none"></td>
-            <td id="board-square">
-              <div class="red" id="5" draggable="true"></div>
-            </td>
-            <td id="board-square" class="none"></td>
-            <td id="board-square">
-              <div class="red" id="6" draggable="true"></div>
-            </td>
-            <td id="board-square" class="none"></td>
-            <td id="board-square">
-              <div class="red" id="7" draggable="true"></div>
-            </td>
-            <td id="board-square" class="none"></td>
-          </tr>
-          <tr>
-            <td id="board-square" class="none"></td>
-            <td id="board-square">
-              <div class="red" id="8" draggable="true"></div>
-            </td>
-            <td id="board-square" class="none"></td>
-            <td id="board-square">
-              <div class="red" id="9" draggable="true"></div>
-            </td>
-            <td id="board-square" class="none"></td>
-            <td id="board-square">
-              <div class="red" id="10" draggable="true"></div>
-            </td>
-            <td id="board-square" class="none"></td>
-            <td id="board-square">
-              <div class="red" id="11" draggable="true"></div>
+              <div class="red" id="3"></div>
             </td>
           </tr>
           <tr>
-            <td id="board-square"></td>
-            <td id="board-square" class="none"></td>
-            <td id="board-square"></td>
-            <td id="board-square" class="none"></td>
-            <td id="board-square"></td>
-            <td id="board-square" class="none"></td>
-            <td id="board-square"></td>
-            <td id="board-square" class="none"></td>
-          </tr>
-          <tr>
-            <td id="board-square" class="none"></td>
-            <td id="board-square"></td>
-            <td id="board-square" class="none"></td>
-            <td id="board-square"></td>
-            <td id="board-square" class="none"></td>
-            <td id="board-square"></td>
-            <td id="board-square" class="none"></td>
-            <td id="board-square"></td>
-          </tr>
-          <tr>
             <td id="board-square">
-              <div class="black" id="12" draggable="true"></div>
+              <div class="red" id="4"></div>
             </td>
             <td id="board-square" class="none"></td>
             <td id="board-square">
-              <div class="black" id="13" draggable="true"></div>
+              <div class="red" id="5"></div>
             </td>
             <td id="board-square" class="none"></td>
             <td id="board-square">
-              <div class="black" id="14" draggable="true"></div>
+              <div class="red" id="6"></div>
             </td>
             <td id="board-square" class="none"></td>
             <td id="board-square">
-              <div class="black" id="15" draggable="true"></div>
+              <div class="red" id="7"></div>
             </td>
             <td id="board-square" class="none"></td>
           </tr>
           <tr>
             <td id="board-square" class="none"></td>
             <td id="board-square">
-              <div class="black" id="16" draggable="true"></div>
+              <div class="red" id="8"></div>
             </td>
             <td id="board-square" class="none"></td>
             <td id="board-square">
-              <div class="black" id="17" draggable="true"></div>
+              <div class="red" id="9"></div>
             </td>
             <td id="board-square" class="none"></td>
             <td id="board-square">
-              <div class="black" id="18" draggable="true"></div>
+              <div class="red" id="10"></div>
             </td>
             <td id="board-square" class="none"></td>
             <td id="board-square">
-              <div class="black" id="19" draggable="true"></div>
+              <div class="red" id="11"></div>
+            </td>
+          </tr>
+          <tr>
+            <td id="board-square"></td>
+            <td id="board-square" class="none"></td>
+            <td id="board-square"></td>
+            <td id="board-square" class="none"></td>
+            <td id="board-square"></td>
+            <td id="board-square" class="none"></td>
+            <td id="board-square"></td>
+            <td id="board-square" class="none"></td>
+          </tr>
+          <tr>
+            <td id="board-square" class="none"></td>
+            <td id="board-square"></td>
+            <td id="board-square" class="none"></td>
+            <td id="board-square"></td>
+            <td id="board-square" class="none"></td>
+            <td id="board-square"></td>
+            <td id="board-square" class="none"></td>
+            <td id="board-square"></td>
+          </tr>
+          <tr>
+            <td id="board-square">
+              <div class="black" id="12"></div>
+            </td>
+            <td id="board-square" class="none"></td>
+            <td id="board-square">
+              <div class="black" id="13"></div>
+            </td>
+            <td id="board-square" class="none"></td>
+            <td id="board-square">
+              <div class="black" id="14"></div>
+            </td>
+            <td id="board-square" class="none"></td>
+            <td id="board-square">
+              <div class="black" id="15"></div>
+            </td>
+            <td id="board-square" class="none"></td>
+          </tr>
+          <tr>
+            <td id="board-square" class="none"></td>
+            <td id="board-square">
+              <div class="black" id="16"></div>
+            </td>
+            <td id="board-square" class="none"></td>
+            <td id="board-square">
+              <div class="black" id="17"></div>
+            </td>
+            <td id="board-square" class="none"></td>
+            <td id="board-square">
+              <div class="black" id="18"></div>
+            </td>
+            <td id="board-square" class="none"></td>
+            <td id="board-square">
+              <div class="black" id="19"></div>
             </td>
           </tr>
           <tr>
             <td id="board-square">
-              <div class="black" id="20" draggable="true"></div>
+              <div class="black" id="20"></div>
             </td>
             <td id="board-square" class="none"></td>
             <td id="board-square">
-              <div class="black" id="21" draggable="true"></div>
+              <div class="black" id="21"></div>
             </td>
             <td id="board-square" class="none"></td>
             <td id="board-square">
-              <div class="black" id="22" draggable="true"></div>
+              <div class="black" id="22"></div>
             </td>
             <td id="board-square" class="none"></td>
             <td id="board-square">
-              <div class="black" id="23" draggable="true"></div>
+              <div class="black" id="23"></div>
             </td>
             <td id="board-square" class="none"></td>
           </tr>
