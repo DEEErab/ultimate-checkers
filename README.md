@@ -1,29 +1,40 @@
 # ultimate-checkers
 
+## Description
+
+My project is a simple game of checkers. It is ultimatly a version of checkers that is mainly ment to be enjoyed
+between two players playing on a single phone or tablet sitting across from each other.
+
+### future plans:
+
+- add a computer player
+- add a multiplayer option
+- add perks to the game
+
 ## variables
 
 - `board` = creates an array of the checkers board. This array numbers the occupied
-  spaces and the lables the empty ones as null.
+  spaces and the lables the empty ones as `null`.
 
-- `cells` = defines `cells` as the html `td` tag.
+- `cells` = defines `cells` as the `id` `board-square`.
 
-- `redsPieces` = defines `redsPieces` as the html tag `p`.
+- `redsPieces` = defines `redsPieces` as the `id` `red`.
 
-- `blacksPieces` = defines `blackPieces` as the html tag `span`.
+- `blacksPieces` = defines `blackPieces` as the `id` `black`.
 
-- `redTurnText` = defines `redTurnText` as the html class `.red-turn-text`.
+- `redTurnText` = defines `redTurnText` as the `class` `.red-turn-text`.
 
-- `blackTurnText` = defines `blackTurnText` as the html class `.black-turn-text`.
+- `blackTurnText` = defines `blackTurnText` as the `class` `.black-turn-text`.
 
 - `turn` = bool(true).
 
-- `redScore` = 0, starts at 0 then increase as pieces are taken.
+- `redScore` = **0**, starts at **0** then increase as pieces are taken.
 
-- `blackScore` = 0, starts at 0 then increase as pieces are taken.
+- `blackScore` = **0**, starts at **0** then increase as pieces are taken.
 
-- `playerPieces` = any, used later to define players piece count.
+- `playerPieces` = **any**, used later to define players piece count.
 
-- `selectedPiece` = A object that is applyed to every piece that is selected
+- `selectedPiece` = A **object** that is applyed to every piece that is selected
   as their inital state.
 
 ## functions
@@ -40,7 +51,8 @@
 - `removeCellOnClick()` = removes "onclick" from the pices that have been removed
   from the board.
 
-- `resetBorders()` = resets the boarder if you select a different piece, or after you make your move. also triggers `resetSelectedPieceProperties()` and `getSelectedPiece()`.
+- `resetBorders()` = resets the boarder if you select a different piece, or after you make your move.
+  Also triggers `resetSelectedPieceProperties()` and `getSelectedPiece()`.
 
 - `resetSelectedPieceProperties()` = resets the inital state of a piece once it is move
   or once it is deselected.
@@ -66,14 +78,33 @@
 
 - `makeMove()` = moves the piece to the selected space.
 
-- `changeData()` = changes the data on the board. Changes score counter, adds to the progress bar, moves a players
-  piece to the apponents side of the screen if a piece has been taken, then changes the turn text.
+- `changeData()` = changes the data on the board. Changes score counter, adds to the progress bar,
+  moves a players piece to the apponents side of the screen if a piece has been taken, then changes
+  the turn text.
 
 - `removeEventListeners()` = removes the event listeners from the pieces.
 
 - `checkForWin()` = checks to see if the player has won.
 
 - `changePlayer()` = changes the player turn.
+
+### media queries
+
+```
+@media screen and (min-width: 768px) {
+  main {
+    flex-direction: row;
+  }
+}
+```
+
+```
+@media screen and (max-width: 768px) {
+  .red-wrapper {
+    transform: rotate(180deg) scaleX(1);
+  }
+}
+```
 
 ## Three main features of the game:
 
@@ -99,7 +130,6 @@
 let turn = true;
 let redScore = 0;
 let blackScore = 0;
-let playerPieces;
 ```
 
 - Allow the user to rearrage or move items by clicking on and dragging and element.

@@ -79,7 +79,7 @@ let redScore = 0;
 let blackScore = 0;
 let playerPieces;
 
-// selected piece properties
+// default piece properties
 let selectedPiece = {
   pieceId: -1,
   indexOfBoardPiece: -1,
@@ -103,10 +103,12 @@ const findPiece = (pieceId) => {
 // itterates through red and black piece to apply eventListiners
 const applyEvents = () => {
   if (turn) {
+    //apply event listeners to red pieces
     for (let i = 0; i < redsPieces.length; i++) {
       redsPieces[i].addEventListener("click", getPlayerCount);
     }
   } else {
+    //apply event listeners to black pieces
     for (let i = 0; i < blacksPieces.length; i++) {
       blacksPieces[i].addEventListener("click", getPlayerCount);
     }
@@ -116,8 +118,10 @@ const applyEvents = () => {
 // holds the length of the players piece count
 const getPlayerCount = () => {
   if (turn) {
+    // if its red's turn "playerPieces" is redsPieces
     playerPieces = redsPieces;
   } else {
+    // if its black's turn "playerPieces" is blackPieces
     playerPieces = blacksPieces;
   }
   removeCellOnClick();
@@ -133,6 +137,7 @@ const removeCellOnClick = () => {
 
 // resets borders to default
 const resetBorders = () => {
+  //reset borders for all the pieces after it is un-selected
   for (let i = 0; i < playerPieces.length; i++) {
     playerPieces[i].style.border = "none";
   }
@@ -164,11 +169,13 @@ const getSelectedPiece = () => {
 
 // checks if selected piece is a king
 const isPieceKing = () => {
+  // if the class is a king then isPieckKing is true
   if (
     document.getElementById(selectedPiece.pieceId).classList.contains("king")
   ) {
     selectedPiece.isKing = true;
   } else {
+    // else = false
     selectedPiece.isKing = false;
   }
   getAvailableSpaces();
@@ -176,6 +183,11 @@ const isPieceKing = () => {
 
 // gets the moves that the selected piece can make
 const getAvailableSpaces = () => {
+  // takes the piece that has been selected (selectedPiece.indexOfBoardPiece) and checks
+  // if it can move to the next space by checking if the board index is "null" and
+  // it has class of "none". if it can move to the next space then it is given the
+  // boolean value of "true".
+
   if (
     board[selectedPiece.indexOfBoardPiece + 7] === null &&
     cells[selectedPiece.indexOfBoardPiece + 7].classList.contains("none") !==
@@ -204,6 +216,7 @@ const getAvailableSpaces = () => {
   ) {
     selectedPiece.minusNinthSpace = true;
   }
+
   checkAvailableJumpSpaces();
 };
 
@@ -574,6 +587,7 @@ const checkForWin = () => {
 
 // Switches players turn
 const changePlayer = () => {
+  // changes the turn and the turn text
   if (turn) {
     turn = false;
     for (let i = 0; i < redTurnText.length; i++) {
