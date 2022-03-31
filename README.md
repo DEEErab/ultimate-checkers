@@ -5,6 +5,8 @@
 My project is a simple game of checkers. It is ultimatly a version of checkers that is mainly ment to be enjoyed
 between two players playing on a single phone or tablet sitting across from each other.
 
+preview: https://deeerab.github.io/ultimate-checkers/
+
 ### future plans:
 
 - add a computer player
